@@ -4,5 +4,16 @@
     <a href="{{post.url}}" class="lead">{{post.url}}</a>
     <p>{{post.summary}}</p>
     <p>Subreddit: {{post.subreddit}}</p>
+    {{#each post.comments}}
+    <p>{{this.content}}</p>
+   {{/each}}
   </div>
+
+  <form action="/posts/{{post._id}}/comments" method="post">
+    <input type="hidden" name="postId" value="{{post._id}}">
+    <textarea name="content" class="form-control" placeholder="Comment"></textarea>
+    <div class="text-right">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
 </div>
