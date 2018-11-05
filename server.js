@@ -1,5 +1,4 @@
 var debug = true;
-
 const mongoose = require("mongoose");
 const exphbs = require('express-handlebars');
 const express = require('express');
@@ -43,7 +42,6 @@ mongoose.connect(
 mongoose.connection.on("error", console.error.bind(console, "MongoDB connection Error:"));
 mongoose.set('debug', true);
 
-
 //.engine sets the view engine and default layout goes along with app.set
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
@@ -54,8 +52,6 @@ app.set('view engine', 'handlebars');
 
 require('./controllers/posts.js')(app);
 require('./data/reddit-clone-db');
-
-
 
 app.listen(port, () => {
     console.log('App Listening on port 3000');
