@@ -6,7 +6,9 @@
       <a href="/posts/{{this._id}}" class="lead">{{this.title}}</a>
       <br>
       <a href="{{this.url}}" target="_blank">{{this.url}}<a>
-    </li>
+       <br>
+      <p>subreddit: <a href="/n/{{this.subreddit}}">{{this.subreddit}}</a>
+    </li></p> 
     {{/each}}
   </ul>
   </div>
