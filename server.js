@@ -33,6 +33,17 @@ app.get('/post-new', (req, res) => {
     res.render('post-new')
 })
 
+// SUBREDDIT
+app.get("/n/:subreddit", function(req, res) {
+Post.find({ subreddit: req.params.subreddit })
+  .then(posts => {
+    res.render("posts-index.handlebars", { posts });
+  })
+  .catch(err => {
+    console.log(err);
+  });
+});
+
 mongoose.Promise = global.Promise;
 mongoose.connect(
     "mongodb://localhost/redditclone",
