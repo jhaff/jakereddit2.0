@@ -62,6 +62,7 @@ app.set('view engine', 'handlebars');
 // End template engine set up
 
 require('./controllers/posts.js')(app);
+require('./controllers/comments.js')(app);
 require('./data/reddit-clone-db');
 
 app.listen(port, () => {

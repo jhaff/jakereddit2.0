@@ -1,7 +1,11 @@
 const Comment = require('../models/comment');
+const Post = require('../models/post');
 
 // CREATE Comment
 // CREATE Comment
+
+module.exports = app => {
+
 app.post("/posts/:postId/comments", function(req, res) {
   // INSTANTIATE INSTANCE OF MODEL
   const comment = new Comment(req.body);
@@ -23,3 +27,4 @@ app.post("/posts/:postId/comments", function(req, res) {
       console.log(err);
     });
 });
+}
