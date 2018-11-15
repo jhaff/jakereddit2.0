@@ -1,3 +1,4 @@
+require('dotenv').config();
 var debug = true;
 const mongoose = require("mongoose");
 const exphbs = require('express-handlebars');
@@ -7,6 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser');
 const Post = require('./models/post');
+
 
 // The bodyParser is used to parser the data entered on our front End
 //necessary with POST routes
@@ -63,6 +65,7 @@ app.set('view engine', 'handlebars');
 
 require('./controllers/posts.js')(app);
 require('./controllers/comments.js')(app);
+require('./controllers/auth.js')(app);
 require('./data/reddit-clone-db');
 
 app.listen(port, () => {
