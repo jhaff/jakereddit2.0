@@ -1,4 +1,6 @@
 require('dotenv').config();
+var cookieParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
 var debug = true;
 const mongoose = require("mongoose");
 const exphbs = require('express-handlebars');
@@ -18,8 +20,10 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(expressValidator()); // This comes after body parser initialization
 // End BodyParser set up
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
+    console.log(req.cookies);
     Post.find({})
         .then(posts => {
             res.render("posts-index", {
